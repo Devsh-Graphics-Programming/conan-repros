@@ -1,0 +1,17 @@
+name: Build-order transitive options
+
+on: [push, workflow_dispatch]
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        conan: [conan==2.32.0, git+https://github.com/conan-io/conan.git@develop2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install "${{ matrix.conan }}"
+      - run: python build-order-transitive-options/reproduce.py
