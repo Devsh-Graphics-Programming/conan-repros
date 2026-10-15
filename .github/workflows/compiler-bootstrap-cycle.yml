@@ -1,6 +1,9 @@
 name: Compiler bootstrap cycle
 
-on: [push, workflow_dispatch]
+on:
+  push:
+    paths: [compiler-bootstrap-cycle/**, .github/workflows/compiler-bootstrap-cycle.yml]
+  workflow_dispatch:
 
 jobs:
   reproduce:

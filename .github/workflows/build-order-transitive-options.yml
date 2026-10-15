@@ -1,6 +1,9 @@
 name: Build-order transitive options
 
-on: [push, workflow_dispatch]
+on:
+  push:
+    paths: [build-order-transitive-options/**, .github/workflows/build-order-transitive-options.yml]
+  workflow_dispatch:
 
 jobs:
   reproduce:

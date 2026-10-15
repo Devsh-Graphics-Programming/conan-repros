@@ -1,6 +1,9 @@
 name: Build-order profile tools
 
-on: [push, workflow_dispatch]
+on:
+  push:
+    paths: [build-order-profile-tools/**, .github/workflows/build-order-profile-tools.yml]
+  workflow_dispatch:
 
 jobs:
   reproduce:
